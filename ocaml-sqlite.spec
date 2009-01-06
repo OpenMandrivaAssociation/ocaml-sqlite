@@ -12,7 +12,7 @@ Patch0:         ocaml-sqlite-debian-install-no-mktop.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 BuildRequires:  ocaml >= 3.10.0
-BuildRequires:  findlib
+BuildRequires:  ocaml-findlib
 BuildRequires:  camlp4
 BuildRequires:  libsqlite3-devel
 BuildRequires:  chrpath
