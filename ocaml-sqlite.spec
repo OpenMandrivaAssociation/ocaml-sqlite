@@ -3,7 +3,7 @@ Version:        1.2.2
 Release:        %mkrel 1
 Summary:        OCaml library for accessing SQLite3 databases
 
-Group:          Development/Libraries
+Group:          Development/Other
 License:        BSD
 URL:            http://www.ocaml.info/home/ocaml_sources.html#ocaml-sqlite3
 Source0:        http://www.ocaml.info/ocaml_sources/ocaml-sqlite3-release-%{version}.tar.bz2
