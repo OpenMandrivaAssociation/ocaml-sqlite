@@ -26,7 +26,7 @@ SQLite 3 database library wrapper for OCaml.
 
 %package        devel
 Summary:        Development files for %{name}
-Group:          Development/Libraries
+Group:          Development/Other
 Requires:       %{name} = %{version}-%{release}
 
 %description    devel
