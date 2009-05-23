@@ -1,5 +1,5 @@
 Name:           ocaml-sqlite
-Version:        1.2.2
+Version:        1.5.1
 Release:        %mkrel 2
 Summary:        OCaml library for accessing SQLite3 databases
 
@@ -83,7 +83,7 @@ rm -rf %{buildroot}
 
 %files devel
 %defattr(-,root,root,-)
-%doc COPYING CHANGES doc README.txt TODO
+%doc COPYING Changelog doc README.txt TODO
 %{_libdir}/ocaml/sqlite3/*.a
 %{_libdir}/ocaml/sqlite3/*.cmxa
 %{_libdir}/ocaml/sqlite3/*.cmx
