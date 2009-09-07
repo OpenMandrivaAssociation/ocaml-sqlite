@@ -1,5 +1,5 @@
 Name:           ocaml-sqlite
-Version:        1.5.1
+Version:        1.5.3
 Release:        %mkrel 3
 Summary:        OCaml library for accessing SQLite3 databases
 
@@ -16,10 +16,6 @@ BuildRequires:  ocaml-findlib
 BuildRequires:  camlp4
 BuildRequires:  libsqlite3-devel
 BuildRequires:  chrpath
-
-#define _use_internal_dependency_generator 0
-#define __find_requires /usr/lib/rpm/ocaml-find-requires.sh
-#define __find_provides /usr/lib/rpm/ocaml-find-provides.sh
 
 %description
 SQLite 3 database library wrapper for OCaml.
