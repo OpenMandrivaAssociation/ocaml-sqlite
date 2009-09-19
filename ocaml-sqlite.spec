@@ -1,6 +1,6 @@
 Name:           ocaml-sqlite
-Version:        1.5.4
-Release:        %mkrel 3
+Version:        1.5.6
+Release:        %mkrel 1
 Summary:        OCaml library for accessing SQLite3 databases
 
 Group:          Development/Other
