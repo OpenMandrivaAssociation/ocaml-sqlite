@@ -14,7 +14,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 BuildRequires:  ocaml >= 3.10.0
 BuildRequires:  ocaml-findlib
 BuildRequires:  camlp4
-BuildRequires:  libsqlite3-devel
+BuildRequires:  sqlite3-devel
 BuildRequires:  chrpath
 
 %description
