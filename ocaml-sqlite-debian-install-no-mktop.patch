@@ -1,0 +1,26 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## install-no-mktop.dpatch by Samuel Mimram <smimram@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Allow installation without building in native mode.
+
+@DPATCH@
+diff -urNad ocaml-sqlite3-0.16.0~/Makefile.in ocaml-sqlite3-0.16.0/Makefile.in
+--- ocaml-sqlite3-0.16.0~/Makefile.in	2007-05-05 11:34:30.000000000 +0200
++++ ocaml-sqlite3-0.16.0/Makefile.in	2007-05-05 11:35:32.000000000 +0200
+@@ -31,13 +31,9 @@
+ distclean: clean
+ 	rm -rf autom4te.* config.* META Makefile doc
+ 
+-# install rebuilds sqlite3top to point to the findlib-managed dll and not the
+-# one in .
+-install: sqlite3.cma sqlite3.cmxa sqlite3top
++install: sqlite3.cma
+ 	[ -f *.so ] && SO_FILES=*.so; \
+-	ocamlfind install sqlite3 META sqlite3.cmi sqlite3.mli sqlite3.cma *.cmxa *.a *.cmx $$SO_FILES
+-	ocamlfind ocamlmktop -o sqlite3top -package "sqlite3" sqlite3.cma
+-	$(INSTALL) sqlite3top $(bindir)/sqlite3top
++	ocamlfind install sqlite3 META sqlite3.cmi sqlite3.mli sqlite3.cma $(wildcard *.cmxa *.a *.cmx) $$SO_FILES
+ 
+ remove: uninstall
+ uninstall:
