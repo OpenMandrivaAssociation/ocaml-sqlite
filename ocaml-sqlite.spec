@@ -86,3 +86,45 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/sqlite3/*.mli
 
 
+
+
+%changelog
+* Wed May 09 2012 Crispin Boylan <crisb@mandriva.org> 1.5.7-2
++ Revision: 797741
+- Rebuild
+
+* Wed Mar 17 2010 Florent Monnier <blue_prawn@mandriva.org> 1.5.7-1mdv2011.0
++ Revision: 522849
+- update to new version 1.5.7.
+
+* Mon Jan 25 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.5.6-1mdv2010.1
++ Revision: 496352
+- update to new version 1.5.6
+
+  + Florent Monnier <blue_prawn@mandriva.org>
+    - new version
+
+* Thu Sep 10 2009 Florent Monnier <blue_prawn@mandriva.org> 1.5.4-3mdv2010.0
++ Revision: 437535
+- new version
+
+* Mon Sep 07 2009 Florent Monnier <blue_prawn@mandriva.org> 1.5.3-3mdv2010.0
++ Revision: 432954
+- new version
+
+* Sun Jun 28 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.5.1-3mdv2010.0
++ Revision: 390306
+- rebuild
+
+* Sat May 23 2009 Florent Monnier <blue_prawn@mandriva.org> 1.5.1-2mdv2010.0
++ Revision: 379085
+- updated version
+- The initial RPM release was made from the fedora rpm .spec file (revision 1.9) by Richard W.M. Jones
+
+* Wed Jan 07 2009 Florent Monnier <blue_prawn@mandriva.org> 1.2.2-1mdv2009.1
++ Revision: 326814
+- corrected group for the devel
+- corrected group
+- findlib package name
+- import ocaml-sqlite
+
