@@ -7,7 +7,7 @@ Version:	2.0.5
 Release:	2
 License:	BSD
 Group:		Development/Other
-Url:		http://www.ocaml.info/home/ocaml_sources.html#ocaml-sqlite3
+Url:		https://www.ocaml.info/home/ocaml_sources.html#ocaml-sqlite3
 Source0:	http://www.ocaml.info/ocaml_sources/sqlite3-ocaml-%{version}.tar.gz
 BuildRequires:	camlp4
 BuildRequires:	chrpath
