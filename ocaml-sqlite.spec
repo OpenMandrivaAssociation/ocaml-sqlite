@@ -9,6 +9,11 @@ License:	BSD
 Group:		Development/Other
 Url:		https://www.ocaml.info/home/ocaml_sources.html#ocaml-sqlite3
 Source0:	http://www.ocaml.info/ocaml_sources/sqlite3-ocaml-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	camlp4
 BuildRequires:	chrpath
 BuildRequires:	ocaml
