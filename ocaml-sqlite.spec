@@ -1,76 +1,47 @@
-%define _enable_debug_packages %{nil}
-%define debug_package %{nil}
+%define _disable_ld_no_undefined 1
 
-Summary:	OCaml library for accessing SQLite 3 databases
 Name:		ocaml-sqlite
-Version:	2.0.5
-Release:	2
-License:	BSD
-Group:		Development/Other
-Url:		https://www.ocaml.info/home/ocaml_sources.html#ocaml-sqlite3
-Source0:	http://www.ocaml.info/ocaml_sources/sqlite3-ocaml-%{version}.tar.gz
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
+Version:	5.4.1
+Release:	1
+Summary:	OCaml library for accessing SQLite3 databases
+License:	MIT
+Group:		Development/OCaml
+Url:		https://mmottl.github.io/sqlite3-ocaml
+Source0:	https://github.com/mmottl/sqlite3-ocaml/archive/%{version}/sqlite3-ocaml-%{version}.tar.gz
+
+# Modern sqlite3-ocaml uses dune; no camlp4/camlp5 preprocessor is required.
 BuildRequires:	make
-BuildRequires:	camlp4
-BuildRequires:	chrpath
-BuildRequires:	ocaml
-BuildRequires:	ocaml-findlib
+BuildRequires:	ocaml >= 4.12
+BuildRequires:	ocaml-compiler
+BuildRequires:	ocaml-dune >= 2.7
+BuildRequires:	ocaml-dune-configurator-devel
 BuildRequires:	pkgconfig(sqlite3)
 
 %description
-SQLite 3 database library wrapper for OCaml.
-
-%files
-%doc COPYING.txt
-%{_libdir}/ocaml/sqlite3
-%exclude %{_libdir}/ocaml/sqlite3/*.a
-%exclude %{_libdir}/ocaml/sqlite3/*.cmxa
-%exclude %{_libdir}/ocaml/sqlite3/*.cmx
-%exclude %{_libdir}/ocaml/sqlite3/*.mli
-%{_libdir}/ocaml/stublibs/*.so
-%{_libdir}/ocaml/stublibs/*.so.owner
-
-#----------------------------------------------------------------------------
+SQLite3 database library wrapper for OCaml (bindings to the SQLite3 C API).
 
 %package devel
 Summary:	Development files for %{name}
-Group:		Development/Other
-Requires:	%{name} = %{EVRD}
+Group:		Development/OCaml
+Requires:	%{name}%{?_isa} = %{EVRD}
+Requires:	pkgconfig(sqlite3)
 
 %description devel
 The %{name}-devel package contains libraries and signature files for
 developing applications that use %{name}.
 
-%files devel
-%doc COPYING.txt README.md
-%{_libdir}/ocaml/sqlite3/*.a
-%{_libdir}/ocaml/sqlite3/*.cmxa
-%{_libdir}/ocaml/sqlite3/*.cmx
-%{_libdir}/ocaml/sqlite3/*.mli
-
-#----------------------------------------------------------------------------
-
 %prep
-%setup -q -n sqlite3-ocaml-%{version}
+%autosetup -n sqlite3-ocaml-%{version}
 
 %build
-./configure \
-	--enable-tests \
-	--prefix %{_prefix} \
-	--destdir '%{buildroot}' \
-	--docdir %{_docdir}/%{name}-devel/
-
-make all
+%dune_build -p sqlite3
 
 %install
-export DESTDIR=%{buildroot}
-export OCAMLFIND_DESTDIR=%{buildroot}/%{_libdir}/ocaml
-mkdir -p $OCAMLFIND_DESTDIR $OCAMLFIND_DESTDIR/stublibs
-make install
+%dune_install
 
-strip $OCAMLFIND_DESTDIR/stublibs/dll*.so
-chrpath --delete $OCAMLFIND_DESTDIR/stublibs/dll*.so
+%files -f .ofiles
+%license LICENSE.md
 
+%files devel -f .ofiles-devel
+%license LICENSE.md
+%doc CHANGELOG.md README.md
