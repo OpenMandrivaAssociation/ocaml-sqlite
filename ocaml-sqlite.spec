@@ -2,7 +2,7 @@
 
 Name:		ocaml-sqlite
 Version:	5.4.1
-Release:	1
+Release:	2
 Summary:	OCaml library for accessing SQLite3 databases
 License:	MIT
 Group:		Development/OCaml
